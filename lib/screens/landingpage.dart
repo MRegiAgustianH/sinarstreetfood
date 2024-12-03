@@ -14,18 +14,18 @@ class _LandingPageState extends State<LandingPage> {
   int currentIndex = 0;
 
   Widget dotIndicator(int index) {
-    return AnimatedContainer(duration: Duration(microseconds: 400),
-    margin: EdgeInsets.only(right: 6),
-    width: 20,
-    height: 4, 
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(15),
-      color: index == currentIndex ? Colors.white : Colors.white54
-    ),
+    return AnimatedContainer(
+      duration: Duration(microseconds: 400),
+      margin: EdgeInsets.only(right: 6),
+      width: 20,
+      height: 4,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: index == currentIndex ? Colors.white : Colors.white54),
     );
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -38,9 +38,13 @@ class _LandingPageState extends State<LandingPage> {
               });
             },
             itemBuilder: (context, index) {
-              return Image.network(
-                landingpage[index].image,
-                fit: BoxFit.cover,
+              return Container(
+                width: double.infinity,
+                height: double.infinity,
+                child: Image(
+                  image: landingpage[index].image,
+                  fit: BoxFit.fill, // Menggunakan BoxFit.fill
+                ),
               );
             },
           ),
@@ -55,7 +59,7 @@ class _LandingPageState extends State<LandingPage> {
                       landingpage[currentIndex].name,
                       style: const TextStyle(
                         fontSize: 45,
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.w500,
                         fontFamily: "NunitoSans",
                         height: 1,
@@ -65,21 +69,21 @@ class _LandingPageState extends State<LandingPage> {
                       height: 10,
                     ),
                     const Text(
-                      "Ayo jelajahi Indonesia bersama kami dan ciptakan kenangan tak terlupakan yang akan bertahan seumur hidup.",
+                      "Sinar Street Food Tempat Kuliner Terbaik",
                       style: TextStyle(
                           fontSize: 11,
-                          color: Colors.white,
+                          color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontFamily: "NunitoSans"),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 30,
                     ),
                     SizedBox(
                       child: Column(
                         children: [
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: List.generate(
                               landingpage.length,
                               dotIndicator,
@@ -99,7 +103,7 @@ class _LandingPageState extends State<LandingPage> {
               height: 185,
               child: Column(
                 children: [
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 25),
                   ClipRRect(
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(15),
@@ -110,6 +114,7 @@ class _LandingPageState extends State<LandingPage> {
                       color: Colors.white,
                       child: Column(
                         children: [
+                          const SizedBox(height: 25),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -120,7 +125,7 @@ class _LandingPageState extends State<LandingPage> {
                               );
                             },
                             child: Container(
-                              height: 60,
+                              height: 65,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   boxShadow: const [
@@ -156,27 +161,6 @@ class _LandingPageState extends State<LandingPage> {
                               ),
                             ),
                           ),
-                          const SizedBox(height: 15),
-                          const Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "sudah punya akun? ",
-                                  style: TextStyle(
-                                    color: kButtonColor,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "Masuk",
-                                  style: TextStyle(
-                                    color: blueTextColor,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -189,10 +173,4 @@ class _LandingPageState extends State<LandingPage> {
       ),
     );
   }
-
-
-
-
-
-
 }

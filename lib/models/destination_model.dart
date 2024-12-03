@@ -3,12 +3,15 @@ import 'dart:math';
 Random random = Random();
 const description =
     'Tempat-tempat wisata menawarkan beragam pengalaman, masing-masing dengan pesona dan daya tarik yang unik. Dari lanskap alam yang memukau hingga landmark bersejarah, selalu ada sesuatu untuk setiap wisatawan. Wisata PesisirDestinasi seperti pantai tropis mengundang relaksasi dengan air yang jernih, sementara daerah pegunungan menawarkan jalur pendakian yang penuh petualangan dan pemandangan yang menakjubkan.';
+const kawahijen =
+    'Kawah Ijen adalah sebuah danau kawah yang bersifat asam yang berada di puncak Gunung Ijen dengan kedalaman danau 200 meter dan luas kawah mencapai 5.466 Hektar.';
 
 class TravelDestination {
   final int id, price, review;
   final List<String>? image;
   final String name, description, category, location;
   final double rate;
+  // final String kawahijen;
 
   TravelDestination({
     required this.id,
@@ -20,6 +23,7 @@ class TravelDestination {
     required this.price,
     required this.description,
     required this.rate,
+    // required this.kawahijen,
   });
 }
 
@@ -88,20 +92,21 @@ List<TravelDestination> listDestination = [
 
   // Recommended destinations
   TravelDestination(
-      id: 5,
-      name: "Kawah Ijen",
-      category: 'rekomendasi',
-      image: [
-        "https://images.unsplash.com/photo-1576078137358-d330f3642834?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1603725616907-82eb483d7dea?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1669454572059-380b4c13101c?q=80&w=2097&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1575242385452-44b445d98f34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      ],
-      location: 'Jawa Timur, Indonesia',
-      review: random.nextInt(250) + 20,
-      price: 180,
-      description: description,
-      rate: 4.6),
+    id: 5,
+    name: "Kawah Ijen",
+    category: 'rekomendasi',
+    image: [
+      "https://images.unsplash.com/photo-1576078137358-d330f3642834?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1603725616907-82eb483d7dea?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1669454572059-380b4c13101c?q=80&w=2097&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1575242385452-44b445d98f34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
+    location: 'Jawa Timur, Indonesia',
+    review: random.nextInt(250) + 20,
+    price: 180,
+    description: description,
+    rate: 4.6,
+  ),
   TravelDestination(
       id: 6,
       name: "Danau Toba",

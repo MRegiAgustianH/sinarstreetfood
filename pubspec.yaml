@@ -63,7 +63,10 @@ flutter:
   assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-      -  assets/images/
+      -  assets/images/kiosk.gif
+      -  assets/images/merah.jpg
+      -  assets/images/kuning.jpeg
+      -  assets/images/hijau.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -88,6 +91,14 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppinsreg.ttf
+          weight: 400
+        - asset: assets/fonts/poppinsmed.ttf
+          weight: 500
+        
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

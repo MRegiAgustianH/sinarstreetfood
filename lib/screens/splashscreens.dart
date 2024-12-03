@@ -30,10 +30,10 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Lottie.network(
-              'https://lottie.host/956e1e4f-8c98-4206-ae82-50dd50161d69/dtw01aXDDE.json',
-              width: 350,
-              height: 350,
+            Image.asset(
+              "images/kiosk.gif",
+              height: 125.0,
+              width: 125.0,
             ),
             Column(
               mainAxisSize: MainAxisSize.min,
@@ -42,16 +42,18 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 300,
                 ),
                 Text(
-                  'ALING',
+                  'SINAR STREET',
                   style: TextStyle(
-                      fontSize: 40,
+                      fontFamily: 'Poppins',
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color(0xff1B1B1B)),
                 ),
                 Text(
-                  'TRAVEL',
+                  'FOOD',
                   style: TextStyle(
-                      fontSize: 40,
+                      fontFamily: 'Poppins',
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color(0xff1B1B1B)),
                 ),
