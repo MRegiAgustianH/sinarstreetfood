@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
-import 'package:wisata_mobile_5/models/destination_model.dart';
+import 'package:wisata_mobile_5/models/produk_model.dart';
 
-class PopularDestination extends StatelessWidget {
-  final TravelDestination destination;
-  const PopularDestination({super.key, required this.destination});
+class PopularProduk extends StatelessWidget {
+  final Produk produk;
+  const PopularProduk({super.key, required this.produk});
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +35,8 @@ class PopularDestination extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                  destination.image![0],
+                image: AssetImage(
+                  produk.image![0],
                 ),
               ),
             ),
@@ -56,31 +55,21 @@ class PopularDestination extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              destination.name,
+                              produk.name,
                               style: const TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
-                                  fontFamily: "NunitoSans"),
+                                  fontFamily: "Poppins"),
                             ),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const Icon(
-                                  Icons.location_on_outlined,
-                                  color: Colors.white,
-                                  size: 16,
-                                ),
+                                
                                 const SizedBox(
                                   width: 5,
                                 ),
-                                Text(
-                                  destination.location,
-                                  style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12,
-                                      fontFamily: "NunitoSans"),
-                                ),
+                  
                               ],
                             ),
                           ],
@@ -97,12 +86,12 @@ class PopularDestination extends StatelessWidget {
                               width: 5,
                             ),
                             Text(
-                              destination.rate.toString(),
+                              produk.rate.toString(),
                               style: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
-                                  fontFamily: "NunitoSans"),
+                                  fontFamily: "Poppins"),
                             )
                           ],
                         ),

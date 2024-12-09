@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:wisata_mobile_5/models/destination_model.dart';
-import 'package:wisata_mobile_5/screens/detaildestinationscreen.dart';
+import 'package:wisata_mobile_5/models/produk_model.dart';
+import 'package:wisata_mobile_5/screens/detailproduk.dart';
+import 'package:wisata_mobile_5/screens/favoriteproduk.dart';
+import 'package:wisata_mobile_5/screens/populerproduk.dart';
+import 'package:wisata_mobile_5/screens/rekomendasiproduk.dart';
 import 'package:wisata_mobile_5/utils/const.dart';
-import 'package:wisata_mobile_5/widget/popular_destination.dart';
-import 'package:wisata_mobile_5/widget/rekomendasi_destination.dart';
+import 'package:wisata_mobile_5/widget/popular_produk.dart';
+import 'package:wisata_mobile_5/widget/rekomendasi_produk.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,17 +19,16 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedPage = 0;
   List<IconData> icons = [
     Icons.home_filled,
-    Icons.bookmark_border_rounded,
-    Icons.shopping_cart_outlined,
-    Icons.person_outline_outlined
+    Icons.favorite_rounded
   ];
 
-  List<TravelDestination> popular = listDestination
+  List<Produk> popular = listProduk
       .where((element) => element.category == 'popular')
       .toList();
-  List<TravelDestination> rekomendasi = listDestination
+  List<Produk> rekomendasi = listProduk
       .where((element) => element.category == 'rekomendasi')
       .toList();
+      
 
   @override
   Widget build(BuildContext context) {
@@ -42,18 +44,32 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Tempat Populer',
+                  'Produk populer',
                   style: TextStyle(
+                      fontFamily: "Poppins",
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       color: Colors.black),
+                      
                 ),
-                Text(
-                  'Lihat Semua',
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: blueTextColor),
+                GestureDetector(
+                  onTap: () {
+                    // Ganti 'PopularProductsScreen' dengan nama layar yang sesuai
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PopularProductsScreen(popularProducts: popular), // Ganti 'popular' dengan daftar produk populer Anda
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Lihat Semua',
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: blueTextColor),
+                  ),
                 ),
               ],
             ),
@@ -72,11 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => DetailDestinationScreen(
-                                  destination: popular[index])));
+                              builder: (_) => DetailProdukScreen(
+                                  produk: popular[index])));
                     },
-                    child: PopularDestination(
-                      destination: popular[index],
+                    child: PopularProduk(
+                      produk: popular[index],
                     ),
                   ),
                 ),
@@ -85,27 +101,39 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(height: 20),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Rekomendasi Untuk Kamu',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Rekomendasi Untuk Kamu',
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RekomendasiProdukScreen(rekomendasiproduk: rekomendasi), // Ganti 'popular' dengan daftar produk populer Anda
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Lihat Semua',
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: blueTextColor),
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Lihat Semua',
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: blueTextColor),
-                ),
-              ],
-            ),
-          ),
+              ),
           SizedBox(height: 20),
           Expanded(
             child: SingleChildScrollView(
@@ -121,11 +149,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => DetailDestinationScreen(
-                                  destination: rekomendasi[index])));
+                              builder: (_) => DetailProdukScreen(
+                                  produk: rekomendasi[index])));
                       },
-                      child: RekomendasiDestination(
-                        destination: rekomendasi[index],
+                      child: RekomendasiProduk(
+                        produk: rekomendasi[index],
                       ),
                     ),
                   ),
@@ -145,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: List.generate(
                       icons.length,
                       (index) => GestureDetector(
@@ -153,6 +181,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           setState(() {
                             selectedPage = index;
                           });
+                          if (index == 1) { // Jika ikon yang diklik adalah favorit
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FavoriteProductsScreen(),
+                              ),
+                            );
+                          }
                         },
                         child: Icon(
                           icons[index],
@@ -222,8 +258,9 @@ Widget buildSearchButton() {
     ),
     child: TextField(
       decoration: InputDecoration(
-        hintText: 'Cari Destinasi...',
+        hintText: 'Cari Produk...',
         hintStyle: TextStyle(
+          fontFamily: "Poppins",
           color: Colors.white54,
           fontSize: 18,
         ),

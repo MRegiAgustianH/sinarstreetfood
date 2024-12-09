@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:wisata_mobile_5/screens/landingpage.dart';
 
 class SplashScreen extends StatefulWidget {

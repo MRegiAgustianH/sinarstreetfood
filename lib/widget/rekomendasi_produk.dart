@@ -1,15 +1,16 @@
-
 import 'package:flutter/material.dart';
-import 'package:wisata_mobile_5/models/destination_model.dart';
+import 'package:wisata_mobile_5/models/produk_model.dart';
 import 'package:wisata_mobile_5/utils/const.dart';
 
-class RekomendasiDestination extends StatelessWidget {
-  final TravelDestination destination;
-  const RekomendasiDestination({
-    super.key,
-    required this.destination,
-  });
+class RekomendasiProduk extends StatefulWidget {
+  final Produk produk;
+  const RekomendasiProduk({super.key, required this.produk});
 
+  @override
+  State<RekomendasiProduk> createState() => _RekomendasiProdukState();
+}
+
+class _RekomendasiProdukState extends State<RekomendasiProduk> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +29,7 @@ class RekomendasiDestination extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(destination.image![0]),
+                image: AssetImage(widget.produk.image![0]),
               ),
             ),
           ),
@@ -41,39 +42,18 @@ class RekomendasiDestination extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  destination.name,
+                  widget.produk.name,
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
-                    fontFamily: "NunitoSans",
+                    fontFamily: "Poppins",
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.location_on_outlined,
-                      color: Colors.black,
-                      size: 14,
-                    ),
-                    Text(
-                      destination.location,
-                      style: TextStyle(
-                        fontSize: 9,
-                        color: Colors.black.withOpacity(0.8),
-                      ),
-                    ),
-                  ],
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Icon(
                       Icons.star,
@@ -84,15 +64,16 @@ class RekomendasiDestination extends StatelessWidget {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: "${destination.rate} ",
+                            text: "${widget.produk.rate} ",
                             style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black),
                           ),
                           TextSpan(
-                            text: "(${destination.review} reviews)",
+                            text: "(${widget.produk.review} reviews)",
                             style: TextStyle(
+                                fontFamily: "Poppins",
                                 fontSize: 10,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.black.withOpacity(0.6)),
@@ -101,33 +82,32 @@ class RekomendasiDestination extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Rp${widget.produk.price}K",
+                        style: const TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: blueTextColor),
+                      ),
+                      TextSpan(
+                        text: "/Pcs",
+                        style: TextStyle(fontFamily: "Poppins",
+                            fontSize: 10, color: Colors.black.withOpacity(0.6)),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
-          Column(
-            children: [
-              const Spacer(),
-              Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Rp${destination.price}K",
-                      style: const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
-                          color: blueTextColor),
-                    ),
-                    TextSpan(
-                      text: "/Orang",
-                      style: TextStyle(
-                          fontSize: 10, color: Colors.black.withOpacity(0.6)),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          )
         ],
       ),
     );

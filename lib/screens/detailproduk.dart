@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:wisata_mobile_5/models/destination_model.dart';
+import 'package:wisata_mobile_5/models/produk_model.dart';
 import 'package:wisata_mobile_5/utils/const.dart';
 
-class DetailDestinationScreen extends StatefulWidget {
-  final TravelDestination destination;
-  const DetailDestinationScreen({super.key, required this.destination});
+class DetailProdukScreen extends StatefulWidget {
+  final Produk produk;
+  const DetailProdukScreen({super.key, required this.produk});
 
   @override
-  State<DetailDestinationScreen> createState() => _DetailDestinasiScreenState();
+  State<DetailProdukScreen> createState() => _DetailProdukScreenState();
 }
 
-class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
+class _DetailProdukScreenState extends State<DetailProdukScreen> {
   PageController pageController = PageController();
   int pageView = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+      return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Column(
         children: [
@@ -50,10 +50,10 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                             });
                           },
                           children: List.generate(
-                            widget.destination.image!.length,
-                            (index) => Image.network(
+                            widget.produk.image!.length,
+                            (index) => Image.asset(
                               fit: BoxFit.cover,
-                              widget.destination.image![index],
+                              widget.produk.image![index],
                             ),
                           ),
                         ),
@@ -74,14 +74,14 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                                   borderRadius: BorderRadius.circular(15),
                                   image: DecorationImage(
                                     image:
-                                        widget.destination.image!.length - 1 !=
+                                        widget.produk.image!.length - 1 !=
                                                 pageView
-                                            ? NetworkImage(
-                                                widget.destination
+                                            ? AssetImage(
+                                                widget.produk
                                                     .image![pageView + 1],
                                               )
-                                            : NetworkImage(
-                                                widget.destination.image![0],
+                                            : AssetImage(
+                                                widget.produk.image![0],
                                               ),
                                     fit: BoxFit.cover,
                                   ),
@@ -98,7 +98,7 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: List.generate(
-                                        widget.destination.image!.length,
+                                        widget.produk.image!.length,
                                         (index) => GestureDetector(
                                           onTap: () {
                                             if (pageController.hasClients) {
@@ -142,8 +142,9 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              widget.destination.name,
+                                              widget.produk.name,
                                               style: const TextStyle(
+                                                fontFamily: "Poppins",
                                                 fontSize: 18,
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold,
@@ -156,22 +157,11 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.end,
                                               children: [
-                                                const Icon(
-                                                  Icons.location_on_outlined,
-                                                  color: Colors.white,
-                                                  size: 18,
-                                                ),
+                                                
                                                 const SizedBox(
                                                   width: 5,
                                                 ),
-                                                Text(
-                                                  widget.destination.location,
-                                                  style: const TextStyle(
-                                                    fontSize: 13,
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                                ),
+                                                
                                               ],
                                             ),
                                           ],
@@ -191,9 +181,10 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                                                   width: 5,
                                                 ),
                                                 Text(
-                                                  widget.destination.rate
+                                                  widget.produk.rate
                                                       .toString(),
                                                   style: const TextStyle(
+                                                    fontFamily: "Poppins",
                                                     fontSize: 15,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.white,
@@ -205,8 +196,9 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                                               height: 5,
                                             ),
                                             Text(
-                                              '(${widget.destination.review} reviews)',
+                                              '(${widget.produk.review} reviews)',
                                               style: const TextStyle(
+                                                  fontFamily: "Poppins",
                                                   color: Colors.white,
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w500),
@@ -239,13 +231,13 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                     child: const TabBar(
                       labelColor: blueTextColor,
                       labelStyle:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                          TextStyle(fontFamily: "Poppins",fontSize: 18, fontWeight: FontWeight.w500),
                       unselectedLabelColor: Colors.black,
                       indicatorColor: blueTextColor,
                       dividerColor: Colors.transparent,
                       tabs: [
                         Tab(
-                          text: 'Deskripsi',
+                          text: 'Deskripsi', 
                         ),
                         Tab(
                           text: "Review",
@@ -259,16 +251,17 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                         Padding(
                           padding: const EdgeInsets.all(10),
                           child: Text(
-                            widget.destination.description,
+                            widget.produk.description,
                             maxLines: 3,
                             style: const TextStyle(
+                                fontFamily: "Poppins",
                                 color: Colors.black54,
                                 fontSize: 14,
                                 height: 1.5),
                           ),
                         ),
                         const Center(
-                          child: Text("Tidak Ada Review"),
+                          child: Text("Tidak Ada Review", style: TextStyle(fontFamily: "Poppins",),),
                         )
                       ],
                     ),
@@ -301,8 +294,9 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          "Price",
+                          "Harga",
                           style: TextStyle(
+                            fontFamily: "Poppins",
                             fontSize: 14,
                           ),
                         ),
@@ -310,16 +304,18 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                           TextSpan(
                             children: [
                               TextSpan(
-                                text: 'Rp${widget.destination.price}K',
+                                text: 'Rp${widget.produk.price}K',
                                 style: const TextStyle(
+                                  fontFamily: "Poppins",
                                   fontSize: 19,
                                   fontWeight: FontWeight.w600,
                                   color: blueTextColor,
                                 ),
                               ),
                               TextSpan(
-                                text: '/Person',
+                                text: '/Pcs',
                                 style: TextStyle(
+                                  fontFamily: "Poppins",
                                   color: Colors.black.withOpacity(0.6),
                                   fontSize: 14,
                                 ),
@@ -344,7 +340,7 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                       child: const Row(
                         children: [
                           Icon(
-                            Icons.shopping_cart_outlined,
+                            Icons.favorite_border_rounded,
                             color: Colors.white,
                             size: 14,
                           ),
@@ -352,7 +348,7 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
                             width: 5,
                           ),
                           Text(
-                            'Tambahkan ke Keranjang',
+                            'Tambahkan ke Favorit',
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
@@ -420,8 +416,8 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
         ),
         const SizedBox(
           child: Text(
-            "Detail Destinasi",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            "Detail Produk",
+            style: TextStyle(fontFamily: "Poppins",fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ),
         Container(
@@ -431,7 +427,7 @@ class _DetailDestinasiScreenState extends State<DetailDestinationScreen> {
             border: Border.all(color: Colors.black12),
           ),
           child: const Icon(
-            Icons.bookmark_border_rounded,
+            Icons.favorite_border_rounded,
             size: 30,
           ),
         ),

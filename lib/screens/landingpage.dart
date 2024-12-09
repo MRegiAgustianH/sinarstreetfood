@@ -43,7 +43,7 @@ class _LandingPageState extends State<LandingPage> {
                 height: double.infinity,
                 child: Image(
                   image: landingpage[index].image,
-                  fit: BoxFit.fill, // Menggunakan BoxFit.fill
+                  fit: BoxFit.fill, 
                 ),
               );
             },
@@ -61,7 +61,7 @@ class _LandingPageState extends State<LandingPage> {
                         fontSize: 45,
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
-                        fontFamily: "NunitoSans",
+                        fontFamily: "Poppins",
                         height: 1,
                       ),
                     ),
@@ -74,7 +74,7 @@ class _LandingPageState extends State<LandingPage> {
                           fontSize: 11,
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
-                          fontFamily: "NunitoSans"),
+                          fontFamily: "Poppins"),
                     ),
                     const SizedBox(
                       height: 30,
@@ -144,6 +144,7 @@ class _LandingPageState extends State<LandingPage> {
                                     Text(
                                       "Mari Kita Mulai",
                                       style: TextStyle(
+                                          fontFamily: "Poppins",
                                           fontSize: 16,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
