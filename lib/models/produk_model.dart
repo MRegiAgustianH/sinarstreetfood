@@ -9,8 +9,7 @@ class Produk {
   final List<String> image;
   final String name, description, category;
   final double rate;
-  // final String kawahijen;
-
+  
   Produk({
     required this.id,
     required this.name,
@@ -20,7 +19,7 @@ class Produk {
     required this.price,
     required this.description,
     required this.rate,
-    // required this.kawahijen,
+    
   });
 }
 
@@ -31,9 +30,9 @@ List<Produk> listProduk = [
       name: "Martabak",
       category: 'popular',
       image: [
-        "assets/images/merah.jpg",
-        "assets/images/kuning.jpeg",
-        "assets/images/hijau.jpeg",
+        "assets/images/martabak.jpeg",
+        "assets/images/martabak2.jpg",
+        "assets/images/martabak3.jpg",
       ],
       review: random.nextInt(250) + 20,
       price: 25,
@@ -44,9 +43,9 @@ List<Produk> listProduk = [
       name: "Pecel Lele",
       category: 'popular',
       image: [
-        "assets/images/merah.jpg",
-        "assets/images/kuning.jpeg",
-        "assets/images/hijau.jpeg",
+        "assets/images/pecellele.jpg",
+        "assets/images/pecellele2.jpg",
+        "assets/images/pecellele3.jpg",
       ],
       review: random.nextInt(250) + 20,
       price: 8,
@@ -57,7 +56,7 @@ List<Produk> listProduk = [
       name: "Gorengan",
       category: 'popular',
       image: [
-        "assets/images/merah.jpg",
+        "assets/images/gorengan.jpg",
         "assets/images/kuning.jpeg",
         "assets/images/hijau.jpeg",
       ],
@@ -70,7 +69,7 @@ List<Produk> listProduk = [
       name: "Nasi Goreng",
       category: 'popular',
       image: [
-        "assets/images/merah.jpg",
+        "assets/images/nasigoreng.jpg",
         "assets/images/kuning.jpeg",
         "assets/images/hijau.jpeg",
       ],
@@ -85,8 +84,8 @@ List<Produk> listProduk = [
     name: "Telor Gulung",
     category: 'rekomendasi',
     image: [
-        "assets/images/merah.jpg",
-        "assets/images/kuning.jpeg",
+        "assets/images/telorgulung.jpg",
+        "assets/images/telorgulung2.jpg",
         "assets/images/hijau.jpeg",
     ],
     review: random.nextInt(250) + 20,
@@ -99,7 +98,7 @@ List<Produk> listProduk = [
       name: "Sate Maranggi",
       category: 'rekomendasi',
       image: [
-        "assets/images/merah.jpg",
+        "assets/images/satemaranggi.jpg",
         "assets/images/kuning.jpeg",
         "assets/images/hijau.jpeg",
       ],
@@ -112,7 +111,7 @@ List<Produk> listProduk = [
       name: "Lontong Sayur",
       category: 'rekomendasi',
       image: [
-        "assets/images/merah.jpg",
+        "assets/images/lontongsayur.jpg",
         "assets/images/kuning.jpeg",
         "assets/images/hijau.jpeg",
       ],
@@ -125,7 +124,7 @@ List<Produk> listProduk = [
       name: "Kue Pukis",
       category: 'rekomendasi',
       image: [
-        "assets/images/merah.jpg",
+        "assets/images/kuepukis.jpg",
         "assets/images/kuning.jpeg",
         "assets/images/hijau.jpeg",
       ],
@@ -138,7 +137,7 @@ List<Produk> listProduk = [
       name: "Ayam Goreng",
       category: 'rekomendasi',
       image: [
-        "assets/images/merah.jpg",
+        "assets/images/ayamgoreng.jpg",
         "assets/images/kuning.jpeg",
         "assets/images/hijau.jpeg",
       ],

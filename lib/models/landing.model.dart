@@ -8,7 +8,7 @@ class LandingModel {
 }
 
 List<LandingModel> landingpage = [
-  LandingModel(image: AssetImage("assets/images/merah.jpg"), name: 'Martabak'),
-  LandingModel(image: AssetImage("assets/images/kuning.jpeg"), name: 'Pecel Lele'), 
-  LandingModel(image: AssetImage("assets/images/hijau.jpeg"), name: 'Gorengan'), 
+  LandingModel(image: AssetImage("assets/images/martabak.jpeg"), name: 'Martabak'),
+  LandingModel(image: AssetImage("assets/images/pecellele.jpg"), name: 'Pecel Lele'), 
+  LandingModel(image: AssetImage("assets/images/gorengan.jpg"), name: 'Gorengan'), 
 ];

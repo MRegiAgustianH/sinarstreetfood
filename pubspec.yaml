@@ -67,6 +67,20 @@ flutter:
       -  assets/images/merah.jpg
       -  assets/images/kuning.jpeg
       -  assets/images/hijau.jpeg
+      -  assets/images/martabak.jpeg 
+      -  assets/images/martabak2.jpg 
+      -  assets/images/martabak3.jpg 
+      -  assets/images/nasigoreng.jpg 
+      -  assets/images/pecellele.jpg 
+      -  assets/images/pecellele2.jpg 
+      -  assets/images/pecellele3.jpg
+      -  assets/images/ayamgoreng.jpg 
+      -  assets/images/gorengan.jpg 
+      -  assets/images/kuepukis.jpg 
+      -  assets/images/lontongsayur.jpg 
+      -  assets/images/satemaranggi.jpg 
+      -  assets/images/telorgulung.jpg
+      -  assets/images/telorgulung2.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
